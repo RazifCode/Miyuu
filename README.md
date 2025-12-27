@@ -1,0 +1,3 @@
+## Note
+- script ini dalam tahap perkembangan, jika anda mahu melihat proses cara membuat bot wa sendiri boleh tekan link ini...
+- https://youtu.be/yZ-IwbrIydE?si=OKtXJNzdUI-SxDDL
