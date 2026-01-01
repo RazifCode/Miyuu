@@ -51,8 +51,10 @@ conn.ev.on("connection.update", async update => {
     if (connection == "connecting")
         console.log(chalk.yellow("Menyambung ke whatsapp..."));
 
-    if (connection == "open")
+    if (connection == "open") {
+        conn.user.id = `${conn.user.id.split(":")[0]}@s.whatsapp.net`;
         console.log(chalk.green("Connect"), chalk.white(conn.user.id));
+    }
 
     if (connection == "close") {
         const reason = new Boom(lastDisconnect?.error)?.output.statusCode;
@@ -75,3 +77,7 @@ conn.ev.on("connection.update", async update => {
         }
     }
 });
+
+import messages from "./messages.js";
+
+conn.ev.on("messages.upsert", chatUpdate => messages(chatUpdate, conn))
